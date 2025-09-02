@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rishikesh | Portfolio</title>
+</head>
+<body style="font-family:Arial;text-align:center;">
+
+  <h1>Rishikesh's Portfolio</h1>
+  <p>Hi, I'm Rishikesh 👋 A developer skilled in Python, Web Development & AI tools.</p>
+
+  <h2>Projects</h2>
+  <ul style="list-style:none;">
+    <li>AI Chatbot App</li>
+    <li>Portfolio Website</li>
+    <li>Automation Tools</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>Email: rishikesh@example.com</p>
+
+  <!-- Chatbot -->
+  <div style="position:fixed;bottom:20px;right:20px;border:1px solid #ccc;
+              padding:10px;width:250px;background:#f9f9f9;">
+    <div id="chat" style="height:150px;overflow:auto;text-align:left;"></div>
+    <input id="msg" placeholder="Ask me..." style="width:70%;">
+    <button onclick="send()">Send</button>
+  </div>
+
+  <script>
+    const chat = document.getElementById("chat");
+    const replies = {
+      "hi":"Hello! I'm Rishikesh's assistant.",
+      "skills":"I know Python, Web Dev & AI tools.",
+      "projects":"AI Chatbot, Portfolio Website, Automation Tools.",
+      "contact":"Email: rishikesh@example.com",
+      "default":"Ask about 'skills', 'projects', or 'contact'."
+    };
+    function send(){
+      let msg=document.getElementById("msg").value.toLowerCase();
+      if(!msg) return;
+      chat.innerHTML += "<div><b>You:</b> "+msg+"</div>";
+      let reply=replies[msg]||replies["default"];
+      chat.innerHTML += "<div><b>Bot:</b> "+reply+"</div>";
+      chat.scrollTop=chat.scrollHeight;
+      document.getElementById("msg").value="";
+    }
+  </script>
+
+</body>
+</html>
